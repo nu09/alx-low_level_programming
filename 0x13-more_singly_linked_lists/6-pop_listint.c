@@ -7,7 +7,7 @@
  * Return: If the linked list is empty - 0.
  *         Otherwise - The head node's data (n).
  */
-void pop_listint(listint_t **head)
+int pop_listint(listint_t **head)
 {
 	listint_t *tmp;
 	int ret;
