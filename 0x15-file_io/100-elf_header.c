@@ -136,40 +136,40 @@ void print_version(unsigned char *e_ident)
 void print_osabi(unsigned char *e_ident)
 {
 	printf("  OS/ABI:                               ");
-        switch (e_ident[EI_OSABI])
-        {
-        case ELFOSABI_NONE:
-                printf("UNIX - System V\n");
-                break;
-        case ELFOSABI_HPUX:
-                printf("UNIX - HP-UX\n");
-                break;
-        case ELFOSABI_NETBSD:
-                printf("UNIX - NetBSD\n");
-                break;
-        case ELFOSABI_LINUX:
-                printf("UNIX - Linux\n");
-                break;
-        case ELFOSABI_SOLARIS:
-		printf("UNIX - Solaris\n");
-		break;
-	case ELFOSABI_IRIX:
-		printf("UNIX - IRIX\n");
-		break;
-	case ELFOSABI_FREEBSD:
-		printf("UNIX - freeBSD\n");
-		break;
-	case ELFOSABI_TRU64:
-		printf("UNIX - TRU64\n");
-		break;
-	case ELFOSABI_ARM:
-		printf("ARM\n");
-		break;
-	case ELFOSABI_STANDALONE:
-		printf("Standalone App\n");
-		break;
-	default:
-		printf("<unknown: %x>\n", e_ident[EI_OSABI]);
+	switch (e_ident[EI_OSABI])
+	{
+		case ELFOSABI_NONE:
+			printf("UNIX - System V\n");
+			break;
+		case ELFOSABI_HPUX:
+			printf("UNIX - HP-UX\n");
+			break;
+		case ELFOSABI_NETBSD:
+			printf("UNIX - NetBSD\n");
+			break;
+		case ELFOSABI_LINUX:
+			printf("UNIX - Linux\n");
+			break;
+		case ELFOSABI_SOLARIS:
+			printf("UNIX - Solaris\n");
+			break;
+		case ELFOSABI_IRIX:
+			printf("UNIX - IRIX\n");
+			break;
+		case ELFOSABI_FREEBSD:
+			printf("UNIX - freeBSD\n");
+			break;
+		case ELFOSABI_TRU64:
+			printf("UNIX - TRU64\n");
+			break;
+		case ELFOSABI_ARM:
+			printf("ARM\n");
+			break;
+		case ELFOSABI_STANDALONE:
+			printf("Standalone App\n");
+			break;
+		default:
+			printf("<unknown: %x>\n", e_ident[EI_OSABI]);
 	}
 }
 
@@ -273,7 +273,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	int o, r;
 
 	o = open(argv[1], O_RDONLY);
-	if ( o == -1)
+	if (o == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read file %s\n", argv[1]);
 		exit(98);
@@ -286,7 +286,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 		exit(98);
 	}
 	r = read(o, header, sizeof(Elf64_Ehdr));
-	if ( r == -1)
+	if (r == -1)
 	{
 		free(header);
 		close_elf(o);
